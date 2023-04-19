@@ -17,3 +17,10 @@ closeBtn.addEventListener('click',() =>{
 window.addEventListener('scroll',()=>{
     document.querySelector('nav').classList.toggle('show-box-shadow', window.scrollY > 0)
 })
+
+const toggleBtn = document.getElementById('toggle-btn');
+const body = document.querySelector('body');
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+});
