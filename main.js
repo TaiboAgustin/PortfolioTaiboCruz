@@ -18,9 +18,20 @@ window.addEventListener('scroll',()=>{
     document.querySelector('nav').classList.toggle('show-box-shadow', window.scrollY > 0)
 })
 
-const toggleBtn = document.getElementById('toggle-btn');
+
+
 const body = document.querySelector('body');
+const toggleBtn = document.querySelector('#toggle-btn');
+const darkMode = localStorage.getItem('darkMode'); // obtiene el estado actual del modo oscuro desde localStorage
+
+// establece el modo oscuro según el estado almacenado en localStorage, o establece el modo por defecto si no hay estado almacenado
+if (darkMode === 'true') {
+  body.classList.add('dark-mode');
+} else {
+  body.classList.remove('dark-mode');
+}
 
 toggleBtn.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', body.classList.contains('dark-mode')); // guarda el estado actual del modo oscuro en localStorage
 });
